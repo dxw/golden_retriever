@@ -59,7 +59,7 @@ module GoldenRetriever
         dealname: name,
         marketplace_id: marketplace_id,
         marketplace_url: marketplace_url,
-        closedate: close_date.to_i,
+        closedate: close_date.to_i * 1000,
         amount: amount
       }
     end
