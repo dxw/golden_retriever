@@ -18,6 +18,13 @@ RSpec.describe GoldenRetriever::Import, :vcr do
       expect(GoldenRetriever::Deal).to_not receive(:create)
       described_class.new.run!
     end
+
+    it 'does not increment the counter' do
+      import = described_class.new
+      import.run!
+
+      expect(import.imports).to eq(0)
+    end
   end
 
   context 'when a deal does not exist' do
@@ -34,6 +41,13 @@ RSpec.describe GoldenRetriever::Import, :vcr do
       )
 
       described_class.new.run!
+    end
+
+    it 'increments the counter' do
+      import = described_class.new
+      import.run!
+
+      expect(import.imports).to eq(1)
     end
   end
 end

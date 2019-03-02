@@ -1,9 +1,10 @@
 module GoldenRetriever
   class Import
-    attr_reader :opportunities
+    attr_reader :opportunities, :imports
 
     def initialize
       @opportunities ||= MarketplaceOpportunityScraper::Opportunity.all
+      @imports = 0
     end
 
     def run!
@@ -15,6 +16,7 @@ module GoldenRetriever
           marketplace_url: opportunity.url,
           closedate: opportunity.closing.to_datetime
         )
+        @imports += 1
       end
     end
   end
