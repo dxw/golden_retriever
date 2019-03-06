@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe GoldenRetriever::Import, :vcr do
@@ -37,7 +39,7 @@ RSpec.describe GoldenRetriever::Import, :vcr do
         name: opportunity.title,
         marketplace_id: opportunity.id,
         marketplace_url: opportunity.url,
-        closedate: opportunity.closing.to_datetime,
+        closedate: opportunity.closing.to_datetime
       )
 
       described_class.new.run!

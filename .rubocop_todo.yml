@@ -1,0 +1,10 @@
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'lib/golden_retriever.rb'
+    - 'lib/golden_retriever/deal.rb'
+    - 'lib/golden_retriever/import.rb'
+
+Metrics/LineLength:
+  Max: 127

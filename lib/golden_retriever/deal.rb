@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 module GoldenRetriever
   class Deal
-    HUBSPOT_PROPERTIES = [
-      'marketplace_id',
-      'dealname',
-      'amount',
-      'closedate',
-      'marketplace_url'
-    ]
+    HUBSPOT_PROPERTIES = %w[
+      marketplace_id
+      dealname
+      amount
+      closedate
+      marketplace_url
+    ].freeze
 
     attr_accessor :id, :marketplace_id, :marketplace_url, :name, :amount
 
@@ -20,7 +22,7 @@ module GoldenRetriever
     end
 
     def close_date
-      @close_date.is_a?(String) ? DateTime.strptime(@close_date,'%s') : @close_date
+      @close_date.is_a?(String) ? DateTime.strptime(@close_date, '%s') : @close_date
     end
 
     def self.create(attrs)
@@ -32,20 +34,22 @@ module GoldenRetriever
     end
 
     def self.all
-      @@all ||= begin
-        hasMore = true
-        offset = nil
-        deals = []
+      @all ||= begin
+        @has_more = true
+        @offset = nil
+        @deals = []
 
-        while hasMore == true
-          hubspot_deals = Hubspot::Deal.all(properties: HUBSPOT_PROPERTIES, offset: offset)
-          deals += hubspot_deals['deals']
-          hasMore = hubspot_deals['hasMore']
-          offset = hubspot_deals['offset']
-        end
+        append_deals while @has_more == true
 
-        deals.map { |d| GoldenRetriever::Deal.new(d.properties) }
+        @deals.map { |d| GoldenRetriever::Deal.new(d.properties) }
       end
+    end
+
+    def self.append_deals
+      hubspot_deals = Hubspot::Deal.all(properties: HUBSPOT_PROPERTIES, offset: @offset)
+      @deals += hubspot_deals['deals']
+      @has_more = hubspot_deals['hasMore']
+      @offset = hubspot_deals['offset']
     end
 
     def save

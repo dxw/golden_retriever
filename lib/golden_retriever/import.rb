@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 module GoldenRetriever
   class Import
-    attr_reader :opportunities, :imports
+    attr_reader :imports
 
     def initialize
-      @opportunities ||= MarketplaceOpportunityScraper::Opportunity.all
       @imports = 0
     end
 
     def run!
       opportunities.each do |opportunity|
         next if GoldenRetriever::Deal.find_by_marketplace_id(opportunity.id)
+
         GoldenRetriever::Deal.create(
           name: opportunity.title,
           marketplace_id: opportunity.id,
@@ -18,6 +20,10 @@ module GoldenRetriever
         )
         @imports += 1
       end
+    end
+
+    def opportunities
+      @opportunities ||= MarketplaceOpportunityScraper::Opportunity.all
     end
   end
 end

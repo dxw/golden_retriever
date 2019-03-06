@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe GoldenRetriever::Deal, :vcr do
@@ -5,7 +7,7 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
     subject { described_class.all }
 
     it 'gets all deals' do
-      expect(subject.count).to eq(817)
+      expect(subject.count).to eq(850)
     end
 
     it 'returns deals in the right format' do
@@ -20,8 +22,8 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
   end
 
   describe '#find_by_marketplace_id' do
-    let(:deal1) { GoldenRetriever::Deal.new(hs_object_id: 12345, marketplace_id: 123) }
-    let(:deal2) { GoldenRetriever::Deal.new(hs_object_id: 12345, marketplace_id: 345) }
+    let(:deal1) { GoldenRetriever::Deal.new(hs_object_id: 12_345, marketplace_id: 123) }
+    let(:deal2) { GoldenRetriever::Deal.new(hs_object_id: 12_345, marketplace_id: 345) }
 
     before do
       allow(described_class).to receive(:all) { [deal1, deal2] }
@@ -51,7 +53,7 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
         closedate: closedate
       )
 
-      described_class.class_variable_set :@@all, nil
+      described_class.instance_variable_set :@all, nil
     end
 
     it 'creates a deal in Hubspot' do

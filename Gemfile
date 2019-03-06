@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem 'marketplace_opportunity_scraper'
-gem 'hubspot-ruby'
 gem 'dotenv'
-gem 'rspec'
+gem 'hubspot-ruby'
+gem 'marketplace_opportunity_scraper'
+gem 'pry'
 gem 'rake'
+gem 'rspec'
+gem 'rubocop'
 gem 'vcr'
 gem 'webmock'
-gem 'pry'
