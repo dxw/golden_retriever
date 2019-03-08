@@ -53,4 +53,30 @@ RSpec.describe GoldenRetriever::Company, :vcr do
       expect(hubspot_company.name).to eq(name)
     end
   end
+
+  describe '#find_or_create_by_name' do
+    let(:name) { 'My Amazing Company' }
+    let(:company) { GoldenRetriever::Company.new(name: name) }
+
+    context 'when a company exists' do
+      before do
+        expect(described_class).to receive(:find_by_name) { company }
+      end
+
+      it 'finds a company' do
+        expect(described_class.find_or_create_by_name(name)).to eq(company)
+      end
+    end
+
+    context 'when a company does not exist' do
+      before do
+        expect(described_class).to receive(:find_by_name) { nil }
+      end
+
+      it 'creates a company' do
+        expect(described_class).to receive(:create).with(name: name) { company }
+        expect(described_class.find_or_create_by_name(name)).to eq(company)
+      end
+    end
+  end
 end
