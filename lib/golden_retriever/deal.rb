@@ -10,6 +10,8 @@ module GoldenRetriever
       marketplace_url
     ].freeze
 
+    ID_ATTRIBUTE = 'deal_id'
+
     attr_accessor :id, :marketplace_id, :marketplace_url, :name, :amount
 
     def initialize(properties)

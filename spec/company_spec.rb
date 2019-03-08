@@ -51,6 +51,7 @@ RSpec.describe GoldenRetriever::Company, :vcr do
     it 'creates a company in Hubspot' do
       expect(hubspot_company).to_not be_nil
       expect(hubspot_company.name).to eq(name)
+      expect(hubspot_company.id).to eq(1_711_686_754)
     end
   end
 

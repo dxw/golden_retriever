@@ -21,7 +21,7 @@ module GoldenRetriever
 
           append_page while @has_more == true
 
-          @results.map { |d| send(:new, d.properties) }
+          @results.map { |d| send(:new, d.properties.merge(id: d.send(self::ID_ATTRIBUTE))) }
         end
       end
 

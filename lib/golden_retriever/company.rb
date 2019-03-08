@@ -6,9 +6,12 @@ module GoldenRetriever
       companyname
     ].freeze
 
-    attr_accessor :name
+    ID_ATTRIBUTE = 'vid'
+
+    attr_accessor :name, :id
 
     def initialize(properties)
+      @id = properties[:id]
       @name = properties[:name]
     end
 
