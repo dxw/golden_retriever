@@ -47,6 +47,14 @@ module GoldenRetriever
       def find_by_attr(key, value)
         all.find { |d| d.send(key).to_s == value.to_s }
       end
+
+      def create(attrs)
+        new(attrs).save
+      end
+    end
+
+    def save
+      self.class.hubspot_class.create!(ENV['HUBSPOT_PORTAL_ID'], nil, nil, prepared_properties)
     end
   end
 end

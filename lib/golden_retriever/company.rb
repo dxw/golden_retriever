@@ -11,5 +11,9 @@ module GoldenRetriever
     def initialize(properties)
       @name = properties[:name]
     end
+
+    def save
+      Hubspot::Company.create!(@name, {})
+    end
   end
 end

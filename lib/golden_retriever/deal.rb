@@ -25,14 +25,6 @@ module GoldenRetriever
       @close_date.is_a?(String) ? DateTime.strptime(@close_date, '%s') : @close_date
     end
 
-    def self.create(attrs)
-      GoldenRetriever::Deal.new(attrs).save
-    end
-
-    def save
-      Hubspot::Deal.create!(ENV['HUBSPOT_PORTAL_ID'], nil, nil, prepared_properties)
-    end
-
     private
 
     def prepared_properties
