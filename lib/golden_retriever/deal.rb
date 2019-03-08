@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module GoldenRetriever
-  class Deal
+  class Deal < Model
     HUBSPOT_PROPERTIES = %w[
       marketplace_id
       dealname
@@ -27,29 +27,6 @@ module GoldenRetriever
 
     def self.create(attrs)
       GoldenRetriever::Deal.new(attrs).save
-    end
-
-    def self.find_by_marketplace_id(id)
-      all.find { |d| d.marketplace_id.to_s == id.to_s }
-    end
-
-    def self.all
-      @all ||= begin
-        @has_more = true
-        @offset = nil
-        @deals = []
-
-        append_deals while @has_more == true
-
-        @deals.map { |d| GoldenRetriever::Deal.new(d.properties) }
-      end
-    end
-
-    def self.append_deals
-      hubspot_deals = Hubspot::Deal.all(properties: HUBSPOT_PROPERTIES, offset: @offset)
-      @deals += hubspot_deals['deals']
-      @has_more = hubspot_deals['hasMore']
-      @offset = hubspot_deals['offset']
     end
 
     def save
