@@ -39,7 +39,7 @@ RSpec.describe GoldenRetriever::Import, :vcr do
         name: opportunity.title,
         marketplace_id: opportunity.id,
         marketplace_url: opportunity.url,
-        closedate: opportunity.closing.to_datetime,
+        expected_close_date: opportunity.closing.to_datetime,
         company_id: 1_727_174_538
       )
 

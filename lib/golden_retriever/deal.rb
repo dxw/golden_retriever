@@ -6,8 +6,8 @@ module GoldenRetriever
       marketplace_id
       dealname
       amount
-      closedate
       marketplace_url
+      expected_close_date
     ].freeze
 
     ID_ATTRIBUTE = 'deal_id'
@@ -20,7 +20,7 @@ module GoldenRetriever
       @marketplace_url = properties[:marketplace_url]
       @name = properties[:dealname] || properties[:name]
       @amount = properties[:amount]
-      @close_date = properties[:close_date] || properties[:closedate]
+      @expected_close_date = properties[:expected_close_date]
       @company_id = properties[:company_id]
     end
 
@@ -33,8 +33,8 @@ module GoldenRetriever
       end
     end
 
-    def close_date
-      @close_date.is_a?(String) ? DateTime.strptime(@close_date, '%Q') : @close_date
+    def expected_close_date
+      @expected_close_date.is_a?(String) ? Date.strptime(@expected_close_date, '%Q') : @expected_close_date
     end
 
     def save
@@ -48,7 +48,7 @@ module GoldenRetriever
         dealname: name,
         marketplace_id: marketplace_id,
         marketplace_url: marketplace_url,
-        closedate: close_date.strftime('%Q').to_i,
+        expected_close_date: expected_close_date.strftime('%Q').to_i,
         amount: amount,
         pipeline: ENV['HUBSPOT_PIPELINE_ID'],
         dealstage: ENV['HUBSPOT_DEAL_STAGE_ID']
