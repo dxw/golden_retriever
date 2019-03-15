@@ -44,13 +44,15 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
     let(:marketplace_url) { 'http://example.com' }
     let(:closedate) { DateTime.parse('2020-01-01T04:00:00Z') }
     let(:hubspot_deal) { described_class.find_by_marketplace_id(marketplace_id) }
+    let(:company) { GoldenRetriever::Company.create(name: 'My Amazing Company') }
 
     before do
       described_class.create(
         name: name,
         marketplace_id: marketplace_id,
         marketplace_url: marketplace_url,
-        closedate: closedate
+        closedate: closedate,
+        company_id: company.id
       )
 
       described_class.instance_variable_set :@all, nil
@@ -62,6 +64,7 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
       expect(hubspot_deal.marketplace_id).to eq(marketplace_id.to_s)
       expect(hubspot_deal.marketplace_url).to eq(marketplace_url)
       expect(hubspot_deal.close_date).to eq(closedate)
+      expect(hubspot_deal.company_id).to eq(company.id)
     end
   end
 end

@@ -21,8 +21,12 @@ module GoldenRetriever
 
           append_page while @has_more == true
 
-          @results.map { |d| send(:new, d.properties.merge(id: d.send(self::ID_ATTRIBUTE))) }
+          @results.map { |d| send(:new, properties(d)) }
         end
+      end
+
+      def properties(item)
+        item.properties.merge(id: item.send(self::ID_ATTRIBUTE))
       end
 
       def append_page
@@ -51,10 +55,6 @@ module GoldenRetriever
       def create(attrs)
         new(attrs).save
       end
-    end
-
-    def save
-      self.class.hubspot_class.create!(ENV['HUBSPOT_PORTAL_ID'], nil, nil, prepared_properties)
     end
   end
 end

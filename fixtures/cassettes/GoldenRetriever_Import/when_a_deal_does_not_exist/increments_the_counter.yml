@@ -129,4 +129,114 @@ http_interactions:
         (eRAP)","timestamp":1551515422804,"source":"API","sourceVid":[]}]},"amount":{"value":"","timestamp":1551515422804,"source":"API","sourceId":null,"versions":[{"name":"amount","value":"","timestamp":1551515422804,"source":"API","sourceVid":[]}]},"closedate":{"value":"1552003200000","timestamp":1551515422804,"source":"API","sourceId":null,"versions":[{"name":"closedate","value":"1552003200000","timestamp":1551515422804,"source":"API","sourceVid":[]}]},"marketplace_url":{"value":"https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities/9142","timestamp":1551515422804,"source":"API","sourceId":null,"versions":[{"name":"marketplace_url","value":"https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities/9142","timestamp":1551515422804,"source":"API","sourceVid":[]}]},"hs_lastmodifieddate":{"value":"1551515422804","timestamp":1551515422804,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_lastmodifieddate","value":"1551515422804","timestamp":1551515422804,"source":"CALCULATED","sourceVid":[]}]},"hs_createdate":{"value":"1551515422804","timestamp":1551515422804,"source":"API","sourceId":null,"versions":[{"name":"hs_createdate","value":"1551515422804","timestamp":1551515422804,"source":"API","sourceVid":[]}]},"createdate":{"value":"1551515422804","timestamp":1551515422804,"source":"API","sourceId":null,"versions":[{"name":"createdate","value":"1551515422804","timestamp":1551515422804,"source":"API","sourceVid":[]}]},"amount_in_home_currency":{"value":"","timestamp":1551515422804,"source":"CALCULATED","sourceId":null,"versions":[{"name":"amount_in_home_currency","value":"","timestamp":1551515422804,"source":"CALCULATED","sourceVid":[],"sourceMetadata":""}]}},"imports":[],"stateChanges":[]}'
     http_version: 
   recorded_at: Sat, 02 Mar 2019 08:30:22 GMT
+- request:
+    method: post
+    uri: https://api.hubapi.com/companies/v2/companies/?hapikey=ea332f3a-c60b-4730-bb76-32965bd39109
+    body:
+      encoding: UTF-8
+      string: '{"properties":[{"name":"name","value":"Clinical Practice Research Datalink
+        (CPRD) - Medicines and Healthcare  products Regulatory Agency"}]}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 08 Mar 2019 14:02:26 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dfdcd8dfee8a82a7676a882ed5f0655711552053746; expires=Sat, 07-Mar-20
+        14:02:26 GMT; path=/; domain=.hubapi.com; HttpOnly
+      X-Trace:
+      - 2B7D1DA12BE27E13CE264B203E05DBFFE2A9E61125000000000000000000
+      X-Hubspot-Ratelimit-Daily:
+      - '40000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '39932'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '8'
+      Access-Control-Allow-Credentials:
+      - 'false'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4b4558cb1c34ce8d-LHR
+    body:
+      encoding: UTF-8
+      string: '{"portalId":5360356,"companyId":1711706921,"isDeleted":false,"properties":{"hs_lastmodifieddate":{"value":"1552053746511","timestamp":1552053746511,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_lastmodifieddate","value":"1552053746511","timestamp":1552053746511,"source":"CALCULATED","sourceVid":[],"requestId":"48167e78-dc6e-46f8-9613-0a28263d28cb"}]},"name":{"value":"Clinical
+        Practice Research Datalink (CPRD) - Medicines and Healthcare  products Regulatory
+        Agency","timestamp":1552053746511,"source":"API","sourceId":null,"versions":[{"name":"name","value":"Clinical
+        Practice Research Datalink (CPRD) - Medicines and Healthcare  products Regulatory
+        Agency","timestamp":1552053746511,"source":"API","sourceVid":[],"requestId":"48167e78-dc6e-46f8-9613-0a28263d28cb"}]},"createdate":{"value":"1552053746511","timestamp":1552053746511,"source":"API","sourceId":null,"versions":[{"name":"createdate","value":"1552053746511","timestamp":1552053746511,"source":"API","sourceVid":[],"requestId":"48167e78-dc6e-46f8-9613-0a28263d28cb"},{"name":"createdate","value":"1552053746511","timestamp":1552053746511,"sourceId":"API","source":"API","sourceVid":[],"requestId":"48167e78-dc6e-46f8-9613-0a28263d28cb"}]}},"additionalDomains":[],"stateChanges":[],"mergeAudits":[]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2019 14:02:26 GMT
+- request:
+    method: post
+    uri: https://api.hubapi.com/companies/v2/companies/?hapikey=ea332f3a-c60b-4730-bb76-32965bd39109
+    body:
+      encoding: UTF-8
+      string: '{"properties":[{"name":"name","value":"Clinical Practice Research Datalink
+        (CPRD) - Medicines and Healthcare  products Regulatory Agency"}]}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 11 Mar 2019 10:32:13 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=da89b96c14508b3463a378f4379cc4eba1552300333; expires=Tue, 10-Mar-20
+        10:32:13 GMT; path=/; domain=.hubapi.com; HttpOnly
+      X-Trace:
+      - 2BAB3DBE07EAB6148744EA25EE3474E24569ABF47A000000000000000000
+      X-Hubspot-Ratelimit-Daily:
+      - '40000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '39999'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      Access-Control-Allow-Credentials:
+      - 'false'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4b5cdcfa1c22ce25-LHR
+    body:
+      encoding: UTF-8
+      string: '{"portalId":5360356,"companyId":1727174538,"isDeleted":false,"properties":{"hs_lastmodifieddate":{"value":"1552300333203","timestamp":1552300333203,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_lastmodifieddate","value":"1552300333203","timestamp":1552300333203,"source":"CALCULATED","sourceVid":[],"requestId":"b82b88db-f241-4fde-966e-d4172b954967"}]},"name":{"value":"Clinical
+        Practice Research Datalink (CPRD) - Medicines and Healthcare  products Regulatory
+        Agency","timestamp":1552300333203,"source":"API","sourceId":null,"versions":[{"name":"name","value":"Clinical
+        Practice Research Datalink (CPRD) - Medicines and Healthcare  products Regulatory
+        Agency","timestamp":1552300333203,"source":"API","sourceVid":[],"requestId":"b82b88db-f241-4fde-966e-d4172b954967"}]},"createdate":{"value":"1552300333203","timestamp":1552300333203,"source":"API","sourceId":null,"versions":[{"name":"createdate","value":"1552300333203","timestamp":1552300333203,"source":"API","sourceVid":[],"requestId":"b82b88db-f241-4fde-966e-d4172b954967"},{"name":"createdate","value":"1552300333203","timestamp":1552300333203,"sourceId":"API","source":"API","sourceVid":[],"requestId":"b82b88db-f241-4fde-966e-d4172b954967"}]}},"additionalDomains":[],"stateChanges":[],"mergeAudits":[]}'
+    http_version: 
+  recorded_at: Mon, 11 Mar 2019 10:32:13 GMT
 recorded_with: VCR 4.0.0

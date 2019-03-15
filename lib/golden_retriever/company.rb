@@ -22,7 +22,9 @@ module GoldenRetriever
     end
 
     def save
-      Hubspot::Company.create!(@name, {})
+      company = Hubspot::Company.create!(@name, {})
+      self.id = company.vid
+      self
     end
   end
 end
