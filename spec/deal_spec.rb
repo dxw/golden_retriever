@@ -7,7 +7,7 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
     subject { described_class.all }
 
     it 'gets all deals' do
-      expect(subject.count).to eq(850)
+      expect(subject.count).to eq(852)
     end
 
     it 'returns deals in the right format' do

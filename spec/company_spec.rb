@@ -7,7 +7,7 @@ RSpec.describe GoldenRetriever::Company, :vcr do
     subject { described_class.all }
 
     it 'gets all companies' do
-      expect(subject.count).to eq(303)
+      expect(subject.count).to eq(315)
     end
 
     it 'returns companies in the right format' do
@@ -15,7 +15,7 @@ RSpec.describe GoldenRetriever::Company, :vcr do
     end
 
     it 'returns properties' do
-      expect(subject.first.name).to eq('SH24')
+      expect(subject.first.name).to eq('My Amazing Company')
     end
   end
 
@@ -51,7 +51,7 @@ RSpec.describe GoldenRetriever::Company, :vcr do
     it 'creates a company in Hubspot' do
       expect(hubspot_company).to_not be_nil
       expect(hubspot_company.name).to eq(name)
-      expect(hubspot_company.id).to eq(1_711_686_754)
+      expect(hubspot_company.id).to eq(1_741_274_547)
     end
   end
 
