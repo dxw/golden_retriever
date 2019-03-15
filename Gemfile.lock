@@ -108,6 +108,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
+  httparty
   hubspot-ruby
   marketplace_opportunity_scraper
   pry
