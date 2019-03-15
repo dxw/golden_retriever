@@ -49,7 +49,9 @@ module GoldenRetriever
         marketplace_id: marketplace_id,
         marketplace_url: marketplace_url,
         closedate: close_date.strftime('%Q').to_i,
-        amount: amount
+        amount: amount,
+        pipeline: ENV['HUBSPOT_PIPELINE_ID'],
+        dealstage: ENV['HUBSPOT_DEAL_STAGE_ID']
       }
     end
   end
