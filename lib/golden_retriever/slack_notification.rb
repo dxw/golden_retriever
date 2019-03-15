@@ -27,12 +27,17 @@ module GoldenRetriever
       ''"
         Woof woof! :dog: :wave: I found #{@opportunity_count}
         opportunities on the marketplace and imported
-        #{@import_count} of them this morning!
+        #{@import_count} of them this morning! Check them out
+        here: #{search_url}
       "''
     end
 
     def no_imports
       'Woof woof! :dog: No new opportunities on the marketplace today'
+    end
+
+    def search_url
+      "https://app.hubspot.com/contacts/#{ENV['HUBSPOT_PORTAL_ID']}/deals/list/view/#{ENV['HUBSPOT_LIST_ID']}/?"
     end
   end
 end
