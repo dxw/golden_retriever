@@ -7,7 +7,7 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
     subject { described_class.all }
 
     it 'gets all deals' do
-      expect(subject.count).to eq(876)
+      expect(subject.count).to eq(852)
     end
 
     it 'returns deals in the right format' do
@@ -17,7 +17,7 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
     it 'returns common attributes' do
       expect(subject.first.name).to eq('Mydex reimplementation')
       expect(subject.first.amount).to eq('2200.0')
-      expect(subject.first.expected_close_date).to eq(nil)
+      expect(subject.first.expected_start_date).to eq(nil)
     end
   end
 
@@ -41,9 +41,9 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
   describe '#create' do
     let(:name) { 'My Amazing Deal' }
     let(:marketplace_id) { 1234 }
-    let(:marketplace_url) { 'http://example.com' }
-    let(:expected_close_date) { Date.parse('2020-01-01') }
-    let(:deadline_for_questions) { Date.parse('2020-02-01') }
+    let(:opportunity_link) { 'http://example.com' }
+    let(:submission_deadline) { Date.parse('2020-01-01') }
+    let(:expected_start_date) { Date.parse('2020-02-01') }
     let(:hubspot_deal) { described_class.find_by_marketplace_id(marketplace_id) }
     let(:company) { GoldenRetriever::Company.create(name: 'My Amazing Company') }
 
@@ -51,9 +51,9 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
       described_class.create(
         name: name,
         marketplace_id: marketplace_id,
-        marketplace_url: marketplace_url,
-        expected_close_date: expected_close_date,
-        deadline_for_questions: deadline_for_questions,
+        opportunity_link: opportunity_link,
+        submission_deadline: submission_deadline,
+        expected_start_date: expected_start_date,
         company_id: company.id
       )
 
@@ -64,9 +64,8 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
       expect(hubspot_deal).to_not be_nil
       expect(hubspot_deal.name).to eq(name)
       expect(hubspot_deal.marketplace_id).to eq(marketplace_id.to_s)
-      expect(hubspot_deal.marketplace_url).to eq(marketplace_url)
-      expect(hubspot_deal.expected_close_date).to eq(expected_close_date)
-      expect(hubspot_deal.deadline_for_questions).to eq(deadline_for_questions)
+      expect(hubspot_deal.opportunity_link).to eq(opportunity_link)
+      expect(hubspot_deal.expected_start_date).to eq(expected_start_date)
       expect(hubspot_deal.company_id).to eq(company.id)
     end
   end

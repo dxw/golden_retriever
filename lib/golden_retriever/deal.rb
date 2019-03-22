@@ -6,22 +6,23 @@ module GoldenRetriever
       marketplace_id
       dealname
       amount
-      marketplace_url
-      expected_close_date
-      deadline_for_questions
+      submission_deadline
+      opportunity_link
+      expected_start_date
     ].freeze
 
     ID_ATTRIBUTE = 'deal_id'
 
-    attr_accessor :id, :marketplace_id, :marketplace_url, :name, :amount, :company_id
+    attr_accessor :id, :marketplace_id, :opportunity_link, :name, :amount, :company_id
 
     def initialize(properties)
       @id = properties[:hs_object_id]
       @marketplace_id = properties[:marketplace_id]
-      @marketplace_url = properties[:marketplace_url]
+      @opportunity_link = properties[:opportunity_link]
       @name = properties[:dealname] || properties[:name]
       @amount = properties[:amount]
-      @expected_close_date = properties[:expected_close_date]
+      @submission_deadline = properties[:submission_deadline]
+      @expected_start_date = properties[:expected_start_date]
       @company_id = properties[:company_id]
       @deadline_for_questions = properties[:deadline_for_questions]
     end
@@ -35,12 +36,12 @@ module GoldenRetriever
       end
     end
 
-    def deadline_for_questions
-      format_date(@deadline_for_questions)
+    def submission_deadline
+      format_date(@submission_deadline)
     end
 
-    def expected_close_date
-      format_date(@expected_close_date)
+    def expected_start_date
+      format_date(@expected_start_date)
     end
 
     def save
@@ -57,9 +58,9 @@ module GoldenRetriever
       {
         dealname: name,
         marketplace_id: marketplace_id,
-        marketplace_url: marketplace_url,
-        expected_close_date: expected_close_date.strftime('%Q').to_i,
-        deadline_for_questions: deadline_for_questions.strftime('%Q').to_i,
+        opportunity_link: opportunity_link,
+        submission_deadline: submission_deadline.strftime('%Q').to_i,
+        expected_start_date: expected_start_date.strftime('%Q').to_i,
         amount: amount,
         pipeline: ENV['HUBSPOT_PIPELINE_ID'],
         dealstage: ENV['HUBSPOT_DEAL_STAGE_ID']

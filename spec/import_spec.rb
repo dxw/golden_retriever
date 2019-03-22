@@ -38,9 +38,9 @@ RSpec.describe GoldenRetriever::Import, :vcr do
       expect(GoldenRetriever::Deal).to receive(:create).with(
         name: opportunity.title,
         marketplace_id: opportunity.id,
-        marketplace_url: opportunity.url,
-        expected_close_date: opportunity.closing.to_datetime,
-        deadline_for_questions: opportunity.question_deadline.to_datetime,
+        opportunity_link: opportunity.url,
+        submission_deadline: opportunity.closing.to_datetime,
+        expected_start_date: opportunity.expected_start_date.to_datetime,
         company_id: 1_727_174_538
       )
 
