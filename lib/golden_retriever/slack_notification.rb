@@ -25,10 +25,8 @@ module GoldenRetriever
 
     def successful_import
       ''"
-        Woof woof! :dog: :wave: I found #{@opportunity_count}
-        opportunities on the marketplace and imported
-        #{@import_count} of them this morning! Check them out
-        here: #{search_url}
+        Woof woof! :dog: :wave: I've imported #{@import_count} opportunities
+        this morning! Check them out here: #{search_url}
       "''
     end
 

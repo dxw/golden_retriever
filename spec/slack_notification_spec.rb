@@ -20,7 +20,6 @@ RSpec.describe GoldenRetriever::SlackNotification, :vcr do
       let(:import_count) { 5 }
 
       it 'creates a success message' do
-        expect(message).to match(/found #{opportunity_count}/)
         expect(message).to match(/imported #{import_count}/)
       end
     end
