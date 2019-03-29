@@ -25,7 +25,7 @@ module GoldenRetriever
 
     def successful_import
       ''"
-        Woof woof! :dog: :wave: I've imported #{@import_count} opportunities
+        Woof woof! :dog: :wave: I've imported #{pluralize(@import_count, 'opportunity')}
         this morning! Check them out here: #{search_url}
       "''
     end
@@ -36,6 +36,10 @@ module GoldenRetriever
 
     def search_url
       "https://app.hubspot.com/contacts/#{ENV['HUBSPOT_PORTAL_ID']}/deals/list/view/#{ENV['HUBSPOT_LIST_ID']}/?"
+    end
+
+    def pluralize(count, name)
+      count == 1 ? "#{count} #{name}" : "#{count} #{name.pluralize}"
     end
   end
 end
