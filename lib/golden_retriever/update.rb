@@ -9,6 +9,7 @@ module GoldenRetriever
         deal = GoldenRetriever::Deal.find_by_marketplace_id(opportunity.id)
 
         next if deal.nil?
+        next unless deal.successful_bidder.nil?
 
         deal.successful_bidder = opportunity.awarded_to
         deal.save

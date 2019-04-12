@@ -13,6 +13,7 @@ RSpec.describe GoldenRetriever::Update, :vcr do
     it 'updates the successful_bidder' do
       deal = double('GoldenRetriever::Deal')
       expect(GoldenRetriever::Deal).to receive(:find_by_marketplace_id).with(opportunity.id) { deal }
+      expect(deal).to receive(:successful_bidder) { nil }
       expect(deal).to receive('successful_bidder=').with(opportunity.awarded_to)
       expect(deal).to receive(:save)
 
@@ -35,6 +36,19 @@ RSpec.describe GoldenRetriever::Update, :vcr do
 
     it 'does not error' do
       expect(GoldenRetriever::Deal).to receive(:find_by_marketplace_id).with(opportunity.id) { nil }
+
+      GoldenRetriever::Update.new.run!
+    end
+  end
+
+  context 'when the deal already has a successful_bidder set' do
+    let(:opportunity) { MarketplaceOpportunityScraper::Opportunity.find(9115) }
+
+    it 'does not set it again' do
+      deal = double('GoldenRetriever::Deal')
+      expect(GoldenRetriever::Deal).to receive(:find_by_marketplace_id).with(opportunity.id) { deal }
+      expect(deal).to receive(:successful_bidder) { 'ACME Inc' }
+      expect(deal).to_not receive(:save)
 
       GoldenRetriever::Update.new.run!
     end
