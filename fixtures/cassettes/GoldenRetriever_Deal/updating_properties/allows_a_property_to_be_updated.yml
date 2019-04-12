@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hubapi.com/deals/v1/deal/624817912?hapikey=<HUBSPOT_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 12 Apr 2019 14:34:50 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dcd4750d25aff4d201ca5fe9735dbb04b1555079690; expires=Sat, 11-Apr-20
+        14:34:50 GMT; path=/; domain=.hubapi.com; HttpOnly
+      X-Trace:
+      - 2B5648223EE6004EB07A33587AB09709C9689BA577000000000000000000
+      X-Hubspot-Ratelimit-Daily:
+      - '40000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '39942'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '8'
+      Vary:
+      - Accept-Encoding, User-Agent
+      Access-Control-Allow-Credentials:
+      - 'false'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4c65ec6328516ba3-LHR
+    body:
+      encoding: UTF-8
+      string: '{"portalId":<HUBSPOT_PORTAL_ID>,"dealId":624817912,"isDeleted":false,"associations":{"associatedVids":[],"associatedCompanyIds":[1454872838],"associatedDealIds":[],"associatedTicketIds":[]},"properties":{"marketplace_id":{"value":"9248","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"marketplace_id","value":"9248","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"dealname":{"value":"Contracts
+        Awarded Database","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"dealname","value":"Contracts
+        Awarded Database","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"successful_bidder":{"value":"","timestamp":1555078398366,"source":"CRM_UI","sourceId":"stuart@dxw.com","versions":[{"name":"successful_bidder","value":"","timestamp":1555078398366,"sourceId":"stuart@dxw.com","source":"CRM_UI","sourceVid":[]}]},"num_associated_contacts":{"value":"0","timestamp":1553271088290,"source":"CALCULATED","sourceId":null,"versions":[{"name":"num_associated_contacts","value":"0","timestamp":1553271088290,"source":"CALCULATED","sourceVid":[],"sourceMetadata":"SWdub3JlVGhpc1Byb3BlcnR5VmFsdWVJblVwZGF0ZUZhY3Rvcnk="}]},"opportunity_link":{"value":"https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities/9248","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"opportunity_link","value":"https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities/9248","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"expected_start_date":{"value":"1553904000000","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"expected_start_date","value":"1553904000000","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"createdate":{"value":"1553271088290","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"createdate","value":"1553271088290","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"pipeline":{"value":"<HUBSPOT_PIPELINE_ID>","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"pipeline","value":"<HUBSPOT_PIPELINE_ID>","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"hs_lastmodifieddate":{"value":"1555078398366","timestamp":1555078398366,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_lastmodifieddate","value":"1555078398366","timestamp":1555078398366,"source":"CALCULATED","sourceVid":[]}]},"dealstage":{"value":"<HUBSPOT_DEAL_STAGE_ID>","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"dealstage","value":"<HUBSPOT_DEAL_STAGE_ID>","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"hs_createdate":{"value":"1553271088290","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"hs_createdate","value":"1553271088290","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"hs_object_id":{"value":"624817912","timestamp":1553271088290,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_object_id","value":"624817912","timestamp":1553271088290,"source":"CALCULATED","sourceVid":[]}]},"submission_deadline":{"value":"1553472000000","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"submission_deadline","value":"1553472000000","timestamp":1553271088290,"source":"API","sourceVid":[]}]}},"imports":[],"stateChanges":[]}'
+    http_version: 
+  recorded_at: Fri, 12 Apr 2019 14:34:50 GMT
+- request:
+    method: put
+    uri: https://api.hubapi.com/deals/v1/deal/624817912?hapikey=<HUBSPOT_API_KEY>
+    body:
+      encoding: UTF-8
+      string: '{"properties":[{"name":"successful_bidder","value":"ACME Inc"}]}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 12 Apr 2019 14:34:51 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d2f1ac40f331ddb4043ab00484e5e763e1555079690; expires=Sat, 11-Apr-20
+        14:34:50 GMT; path=/; domain=.hubapi.com; HttpOnly
+      X-Trace:
+      - 2BBD747C4842E8F0B31379559EC07563A252DDC0B5000000000000000000
+      X-Hubspot-Ratelimit-Daily:
+      - '40000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '39941'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      Access-Control-Allow-Credentials:
+      - 'false'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4c65ec648e1f6b85-LHR
+    body:
+      encoding: UTF-8
+      string: '{"portalId":<HUBSPOT_PORTAL_ID>,"dealId":624817912,"isDeleted":false,"associations":{"associatedVids":[],"associatedCompanyIds":[1454872838],"associatedDealIds":[],"associatedTicketIds":[]},"properties":{"marketplace_id":{"value":"9248","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"marketplace_id","value":"9248","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"dealname":{"value":"Contracts
+        Awarded Database","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"dealname","value":"Contracts
+        Awarded Database","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"successful_bidder":{"value":"ACME
+        Inc","timestamp":1555079691041,"source":"API","sourceId":null,"versions":[{"name":"successful_bidder","value":"ACME
+        Inc","timestamp":1555079691041,"source":"API","sourceVid":[]},{"name":"successful_bidder","value":"","timestamp":1555078398366,"sourceId":"stuart@dxw.com","source":"CRM_UI","sourceVid":[]}]},"num_associated_contacts":{"value":"0","timestamp":1553271088290,"source":"CALCULATED","sourceId":null,"versions":[{"name":"num_associated_contacts","value":"0","timestamp":1553271088290,"source":"CALCULATED","sourceVid":[],"sourceMetadata":"SWdub3JlVGhpc1Byb3BlcnR5VmFsdWVJblVwZGF0ZUZhY3Rvcnk="}]},"opportunity_link":{"value":"https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities/9248","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"opportunity_link","value":"https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities/9248","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"expected_start_date":{"value":"1553904000000","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"expected_start_date","value":"1553904000000","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"createdate":{"value":"1553271088290","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"createdate","value":"1553271088290","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"pipeline":{"value":"<HUBSPOT_PIPELINE_ID>","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"pipeline","value":"<HUBSPOT_PIPELINE_ID>","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"hs_lastmodifieddate":{"value":"1555079691041","timestamp":1555079691041,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_lastmodifieddate","value":"1555079691041","timestamp":1555079691041,"source":"CALCULATED","sourceVid":[]},{"name":"hs_lastmodifieddate","value":"1555078398366","timestamp":1555078398366,"source":"CALCULATED","sourceVid":[]}]},"dealstage":{"value":"<HUBSPOT_DEAL_STAGE_ID>","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"dealstage","value":"<HUBSPOT_DEAL_STAGE_ID>","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"hs_createdate":{"value":"1553271088290","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"hs_createdate","value":"1553271088290","timestamp":1553271088290,"source":"API","sourceVid":[]}]},"hs_object_id":{"value":"624817912","timestamp":0,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_object_id","value":"624817912","source":"CALCULATED","sourceVid":[]}]},"submission_deadline":{"value":"1553472000000","timestamp":1553271088290,"source":"API","sourceId":null,"versions":[{"name":"submission_deadline","value":"1553472000000","timestamp":1553271088290,"source":"API","sourceVid":[]}]}},"imports":[],"stateChanges":[]}'
+    http_version: 
+  recorded_at: Fri, 12 Apr 2019 14:34:51 GMT
+recorded_with: VCR 4.0.0

@@ -13,7 +13,7 @@ module GoldenRetriever
 
     ID_ATTRIBUTE = 'deal_id'
 
-    attr_accessor :id, :marketplace_id, :opportunity_link, :name, :amount, :company_id
+    attr_accessor :id, :marketplace_id, :opportunity_link, :name, :amount, :company_id, :successful_bidder
 
     def initialize(properties)
       @id = properties[:hs_object_id]
@@ -25,6 +25,7 @@ module GoldenRetriever
       @expected_start_date = properties[:expected_start_date]
       @company_id = properties[:company_id]
       @deadline_for_questions = properties[:deadline_for_questions]
+      @successful_bidder = properties[:successful_bidder]
     end
 
     class << self
@@ -45,7 +46,15 @@ module GoldenRetriever
     end
 
     def save
-      self.class.hubspot_class.create!(ENV['HUBSPOT_PORTAL_ID'], [company_id], nil, prepared_properties)
+      if @id.nil?
+        self.class.hubspot_class.create!(ENV['HUBSPOT_PORTAL_ID'], [company_id], nil, prepared_properties)
+      else
+        hubspot_deal.update!(update_properties)
+      end
+    end
+
+    def hubspot_deal
+      @hubspot_deal ||= self.class.hubspot_class.find(id)
     end
 
     private
@@ -64,6 +73,12 @@ module GoldenRetriever
         amount: amount,
         pipeline: ENV['HUBSPOT_PIPELINE_ID'],
         dealstage: ENV['HUBSPOT_DEAL_STAGE_ID']
+      }
+    end
+
+    def update_properties
+      {
+        successful_bidder: successful_bidder
       }
     end
   end

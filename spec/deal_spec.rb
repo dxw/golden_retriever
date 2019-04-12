@@ -7,7 +7,7 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
     subject { described_class.all }
 
     it 'gets all deals' do
-      expect(subject.count).to eq(852)
+      expect(subject.count).to eq(845)
     end
 
     it 'returns deals in the right format' do
@@ -67,6 +67,30 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
       expect(hubspot_deal.opportunity_link).to eq(opportunity_link)
       expect(hubspot_deal.expected_start_date).to eq(expected_start_date)
       expect(hubspot_deal.company_id).to eq(company.id)
+    end
+  end
+
+  describe '#successful_bidder' do
+    let(:deal) { described_class.new(hs_object_id: 12_345, marketplace_id: 123) }
+    let(:company) { 'ACME Inc' }
+
+    it 'allows getting and setting of bidder' do
+      deal.successful_bidder = company
+      expect(deal.successful_bidder).to eq(company)
+    end
+  end
+
+  describe 'updating properties' do
+    let(:deal) { described_class.find_by_marketplace_id(9248) }
+    let(:company) { 'ACME Inc' }
+
+    it 'allows a property to be updated' do
+      deal.successful_bidder = company
+      deal.save
+
+      new_deal = described_class.find_by_marketplace_id(9248)
+
+      expect(new_deal.successful_bidder).to eq(company)
     end
   end
 end
