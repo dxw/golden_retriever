@@ -26,4 +26,9 @@ namespace :opportunities do
       import_count: import.imports
     ).send!
   end
+
+  task :update do
+    update = GoldenRetriever::Update.new
+    update.run!
+  end
 end
