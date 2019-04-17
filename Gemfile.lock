@@ -30,7 +30,7 @@ GEM
     i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.2)
-    marketplace_opportunity_scraper (0.1.0)
+    marketplace_opportunity_scraper (0.1.1)
       mechanize (~> 2.7)
     mechanize (2.7.6)
       domain_name (~> 0.5, >= 0.5.1)
