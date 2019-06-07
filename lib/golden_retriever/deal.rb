@@ -9,12 +9,14 @@ module GoldenRetriever
       submission_deadline
       opportunity_link
       expected_start_date
+      deal_source
     ].freeze
 
     ID_ATTRIBUTE = 'deal_id'
 
-    attr_accessor :id, :marketplace_id, :opportunity_link, :name, :amount, :company_id, :successful_bidder
+    attr_accessor :id, :marketplace_id, :opportunity_link, :name, :amount, :company_id, :successful_bidder, :deal_source
 
+    # rubocop:disable Metrics/AbcSize
     def initialize(properties)
       @id = properties[:hs_object_id]
       @marketplace_id = properties[:marketplace_id]
@@ -26,7 +28,9 @@ module GoldenRetriever
       @company_id = properties[:company_id]
       @deadline_for_questions = properties[:deadline_for_questions]
       @successful_bidder = properties[:successful_bidder]
+      @deal_source = properties[:deal_source]
     end
+    # rubocop:enable Metrics/AbcSize
 
     class << self
       def properties(item)
@@ -72,7 +76,8 @@ module GoldenRetriever
         expected_start_date: expected_start_date.strftime('%Q').to_i,
         amount: amount,
         pipeline: ENV['HUBSPOT_PIPELINE_ID'],
-        dealstage: ENV['HUBSPOT_DEAL_STAGE_ID']
+        dealstage: ENV['HUBSPOT_DEAL_STAGE_ID'],
+        deal_source: 'Digital Marketplace'
       }
     end
 

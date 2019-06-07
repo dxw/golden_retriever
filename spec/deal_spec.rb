@@ -7,7 +7,7 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
     subject { described_class.all }
 
     it 'gets all deals' do
-      expect(subject.count).to eq(845)
+      expect(subject.count).to eq(846)
     end
 
     it 'returns deals in the right format' do
@@ -67,6 +67,7 @@ RSpec.describe GoldenRetriever::Deal, :vcr do
       expect(hubspot_deal.opportunity_link).to eq(opportunity_link)
       expect(hubspot_deal.expected_start_date).to eq(expected_start_date)
       expect(hubspot_deal.company_id).to eq(company.id)
+      expect(hubspot_deal.deal_source).to eq('Digital Marketplace')
     end
   end
 
