@@ -7,9 +7,14 @@ module GoldenRetriever
     include Singleton
 
     def run!
+      @attempts ||= 1
       import.run!
       logger.info "#{import.opportunities.count} opportunities found, #{import.imports} new opportunities imported"
       slack_notification.send!
+    rescue StandardError => e
+      @attempts += 1
+      retry if @attempts < 5
+      send_error_notification(e.message)
     end
 
     private
@@ -24,9 +29,26 @@ module GoldenRetriever
 
     def slack_notification
       GoldenRetriever::SlackNotification.new(
-        opportunity_count: import.opportunities.count,
-        import_count: import.imports
+        opportunity_count: import&.opportunities&.count,
+        import_count: import&.imports
       )
+    end
+
+    def send_error_notification(error)
+      HTTParty.post(ENV['SLACK_ERROR_WEBHOOK_URL'], body: error_payload(error).to_json)
+    end
+
+    def error_payload(error)
+      {
+        text: error_message(error).split.join(' ')
+      }
+    end
+
+    def error_message(error)
+      ''"
+        Woof woof! :dog: There was a problem updating Golden Retriever,
+        the error was `#{error}`. You might want to check the logs!
+      "''
     end
   end
 end
