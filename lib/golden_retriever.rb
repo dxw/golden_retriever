@@ -15,6 +15,7 @@ require 'golden_retriever/company'
 require 'golden_retriever/import'
 require 'golden_retriever/update'
 require 'golden_retriever/slack_notification'
+require 'golden_retriever/import_runner'
 
 Hubspot.configure(hapikey: ENV['HUBSPOT_API_KEY'])
 
