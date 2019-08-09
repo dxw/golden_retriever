@@ -8,6 +8,10 @@ module GoldenRetriever
           define_singleton_method "find_by_#{a}" do |value|
             find_by_attr(a, value)
           end
+
+          define_singleton_method "fuzzy_match_by_#{a}" do |value|
+            fuzzy_match_by_attr(a, value)
+          end
         end
 
         super(*attrs)
@@ -50,6 +54,10 @@ module GoldenRetriever
 
       def find_by_attr(key, value)
         all.find { |d| d.send(key).to_s == value.to_s }
+      end
+
+      def fuzzy_match_by_attr(key, value)
+        FuzzyMatch.new(all, read: key).find(value)
       end
 
       def create(attrs)

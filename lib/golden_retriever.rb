@@ -8,6 +8,7 @@ require 'hubspot-ruby/company'
 
 require 'marketplace_opportunity_scraper'
 require 'httparty'
+require 'fuzzy_match'
 
 require 'golden_retriever/model'
 require 'golden_retriever/deal'

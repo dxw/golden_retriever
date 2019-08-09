@@ -27,12 +27,29 @@ RSpec.describe GoldenRetriever::Company, :vcr do
       allow(described_class).to receive(:all) { [company1, company2] }
     end
 
-    it 'returns nil if there is no deal' do
+    it 'returns nil if there is no company' do
       expect(described_class.find_by_name('Some other company')).to eq(nil)
     end
 
-    it 'returns a deal' do
+    it 'returns a company' do
       expect(described_class.find_by_name('Company 1')).to eq(company1)
+    end
+  end
+
+  describe '´#fuzzy_match_by_name' do
+    let(:company1) { GoldenRetriever::Company.new(name: 'Innovate UK') }
+    let(:company2) { GoldenRetriever::Company.new(name: 'Defence Estates') }
+
+    before do
+      allow(described_class).to receive(:all) { [company1, company2] }
+    end
+
+    it 'returns nil if there is no company' do
+      expect(described_class.fuzzy_match_by_name('Some other company')).to eq(nil)
+    end
+
+    it 'returns a company' do
+      expect(described_class.fuzzy_match_by_name('Innovate UK – Part of UK Research and Innovation')).to eq(company1)
     end
   end
 
@@ -69,9 +86,21 @@ RSpec.describe GoldenRetriever::Company, :vcr do
       end
     end
 
+    context 'when a company exists with a fuzzy match' do
+      before do
+        expect(described_class).to receive(:find_by_name) { nil }
+        expect(described_class).to receive(:fuzzy_match_by_name) { company }
+      end
+
+      it 'finds a company' do
+        expect(described_class.find_or_create_by_name(name)).to eq(company)
+      end
+    end
+
     context 'when a company does not exist' do
       before do
         expect(described_class).to receive(:find_by_name) { nil }
+        expect(described_class).to receive(:fuzzy_match_by_name) { nil }
       end
 
       it 'creates a company' do
