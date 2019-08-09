@@ -57,8 +57,6 @@ RSpec.describe GoldenRetriever::ImportRunner do
 
       before do
         allow(runner).to receive(:send_error_notification) { notification }
-
-        tries = 0
         allow(runner).to receive(:import) do
           raise(ArgumentError)
         end
