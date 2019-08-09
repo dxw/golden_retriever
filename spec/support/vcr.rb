@@ -2,8 +2,12 @@
 
 require 'vcr'
 
-dotenv = File.open('.env')
-filter_vars = File.exist?(dotenv) ? Dotenv::Environment.new(dotenv, true) : ENV
+filter_vars = if File.file?('.env')
+                dotenv = File.open('.env')
+                Dotenv::Environment.new(dotenv, true)
+              else
+                ENV
+              end
 
 VCR.configure do |c|
   c.hook_into :webmock
