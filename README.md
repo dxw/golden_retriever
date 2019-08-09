@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/dxw/golden_retriever.svg?style=svg)](https://circleci.com/gh/dxw/golden_retriever)
+
 # Golden Retriever
 
 Imports opportuntities from the [Digital Marketplace](https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities) into Hubspot
