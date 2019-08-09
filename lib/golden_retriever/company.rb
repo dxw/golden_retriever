@@ -3,7 +3,7 @@
 module GoldenRetriever
   class Company < Model
     HUBSPOT_PROPERTIES = %w[
-      companyname
+      name
     ].freeze
 
     ID_ATTRIBUTE = 'vid'
