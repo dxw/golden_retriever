@@ -18,7 +18,7 @@ module GoldenRetriever
     class << self
       def find_or_create_by_name(name)
         find_by_name(name) ||
-          fuzzy_match_by_name(name) ||
+          # fuzzy_match_by_name(name) ||
           create(name: name)
       end
     end

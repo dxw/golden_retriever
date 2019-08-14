@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hubapi.com/companies/v2/companies/?hapikey=<HUBSPOT_API_KEY>
+    body:
+      encoding: UTF-8
+      string: '{"properties":[{"name":"name","value":"My Amazing Company"}]}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 14 Aug 2019 08:19:02 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d1fc75ad3084d71e68a20c5c717751f621565770742; expires=Thu, 13-Aug-20
+        08:19:02 GMT; path=/; domain=.hubapi.com; HttpOnly
+      X-Trace:
+      - 2B1A526C258F6F02E88D8B45EACC7DA7C4031AF00B000000000000000000
+      X-Hubspot-Ratelimit-Daily:
+      - '250000'
+      X-Hubspot-Ratelimit-Daily-Remaining:
+      - '249999'
+      X-Hubspot-Ratelimit-Interval-Milliseconds:
+      - '10000'
+      X-Hubspot-Ratelimit-Remaining:
+      - '99'
+      X-Hubspot-Ratelimit-Max:
+      - '100'
+      X-Hubspot-Ratelimit-Secondly:
+      - '10'
+      X-Hubspot-Ratelimit-Secondly-Remaining:
+      - '9'
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Credentials:
+      - 'false'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 506180629ad0dbdf-LHR
+    body:
+      encoding: UTF-8
+      string: '{"portalId":<HUBSPOT_PORTAL_ID>,"companyId":2324995605,"isDeleted":false,"properties":{"hs_lastmodifieddate":{"value":"1565770742273","timestamp":1565770742273,"source":"CALCULATED","sourceId":null,"versions":[{"name":"hs_lastmodifieddate","value":"1565770742273","timestamp":1565770742273,"source":"CALCULATED","sourceVid":[],"requestId":"d400ccc2-faa5-456d-8a4d-f9f0a4955738"}]},"name":{"value":"My
+        Amazing Company","timestamp":1565770742273,"source":"API","sourceId":"","versions":[{"name":"name","value":"My
+        Amazing Company","timestamp":1565770742273,"sourceId":"","source":"API","sourceVid":[],"requestId":"d400ccc2-faa5-456d-8a4d-f9f0a4955738"}]},"createdate":{"value":"1565770742273","timestamp":1565770742273,"source":"API","sourceId":"","versions":[{"name":"createdate","value":"1565770742273","timestamp":1565770742273,"sourceId":"","source":"API","sourceVid":[],"requestId":"d400ccc2-faa5-456d-8a4d-f9f0a4955738"},{"name":"createdate","value":"1565770742273","timestamp":1565770742273,"sourceId":"","source":"API","sourceVid":[],"requestId":"d400ccc2-faa5-456d-8a4d-f9f0a4955738"}]}},"additionalDomains":[],"stateChanges":[],"mergeAudits":[]}'
+    http_version: 
+  recorded_at: Wed, 14 Aug 2019 08:19:02 GMT
+recorded_with: VCR 5.0.0
