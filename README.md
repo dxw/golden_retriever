@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/dxw/golden_retriever.svg?style=svg)](https://circleci.com/gh/dxw/golden_retriever)
+[![Build Status](https://github.com/dxw/golden_retriever/workflows/Build/badge.svg)](https://github.com/dxw/golden_retriever/actions)
 
 # Golden Retriever
 
