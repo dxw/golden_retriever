@@ -1,4 +1,4 @@
-name: Ruby
+name: Build
 env:
   HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
   HUBSPOT_DEAL_STAGE_ID: ${{ secrets.HUBSPOT_DEAL_STAGE_ID }}
