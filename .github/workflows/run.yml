@@ -30,5 +30,9 @@ jobs:
         key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           ${{ runner.os }}-gem-
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3 --path ./vendor/bundle
     - name: Fetch latest opportunities
       run: bundle exec rake opportunities:import
