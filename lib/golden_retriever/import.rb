@@ -26,7 +26,7 @@ module GoldenRetriever
         name: opportunity.title,
         marketplace_id: opportunity.id,
         opportunity_link: opportunity.url,
-        submission_deadline: opportunity.closing.to_datetime,
+        submission_deadline: opportunity.closing&.to_datetime,
         expected_start_date: opportunity.expected_start_date,
         company_id: fetch_company(opportunity.buyer)
       }
