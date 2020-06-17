@@ -1,8 +1,0 @@
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'lib/**/*'
-
-Metrics/LineLength:
-  Max: 127

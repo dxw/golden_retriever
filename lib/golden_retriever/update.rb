@@ -18,8 +18,8 @@ module GoldenRetriever
 
     def opportunities
       @opportunities ||= MarketplaceOpportunityScraper::Opportunity.all(
-        type: 'digital-outcomes',
-        status: 'closed'
+        type: "digital-outcomes",
+        status: "closed"
       )
     end
   end

@@ -33,7 +33,7 @@ module GoldenRetriever
     end
 
     def opportunities
-      @opportunities ||= MarketplaceOpportunityScraper::Opportunity.all(type: 'digital-outcomes')
+      @opportunities ||= MarketplaceOpportunityScraper::Opportunity.all(type: "digital-outcomes")
     end
   end
 end

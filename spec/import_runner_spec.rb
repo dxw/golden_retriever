@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe GoldenRetriever::ImportRunner do
   let(:runner) { described_class.instance }
 
-  describe 'run!' do
+  describe "run!" do
     let(:slack) { double(:notification, send!: nil) }
     let(:opportunities) { double(:opportunities, count: 5) }
     let(:import) do
@@ -19,25 +19,25 @@ RSpec.describe GoldenRetriever::ImportRunner do
       allow(runner).to receive(:slack_notification) { slack }
     end
 
-    context 'successful run' do
+    context "successful run" do
       before do
         runner.run!
       end
 
-      it 'runs the import' do
+      it "runs the import" do
         expect(import).to have_received(:run!)
       end
 
-      it 'logs to STDOUT' do
+      it "logs to STDOUT" do
         expect(logger).to have_received(:info)
       end
 
-      it 'sends a notification' do
+      it "sends a notification" do
         expect(slack).to have_received(:send!)
       end
     end
 
-    context 'run fails once' do
+    context "run fails once" do
       before do
         tries = 0
         allow(runner).to receive(:import) do
@@ -47,12 +47,12 @@ RSpec.describe GoldenRetriever::ImportRunner do
         runner.run!
       end
 
-      it 'runs the import' do
+      it "runs the import" do
         expect(import).to have_received(:run!)
       end
     end
 
-    context 'run fails five times' do
+    context "run fails five times" do
       let(:notification) { double(:notification, send!: nil) }
 
       before do
@@ -63,7 +63,7 @@ RSpec.describe GoldenRetriever::ImportRunner do
         runner.run!
       end
 
-      it 'runs the import' do
+      it "runs the import" do
         expect(runner).to have_received(:send_error_notification)
       end
     end

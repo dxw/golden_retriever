@@ -36,8 +36,8 @@ module GoldenRetriever
       def append_page
         page = hubspot_class.send(:all, properties: hubspot_properties, offset: @offset)
         @results += page[class_name.pluralize.downcase]
-        @has_more = page['hasMore']
-        @offset = page['offset']
+        @has_more = page["hasMore"]
+        @offset = page["offset"]
       end
 
       def hubspot_class
@@ -45,7 +45,7 @@ module GoldenRetriever
       end
 
       def class_name
-        name.split('::').last
+        name.split("::").last
       end
 
       def hubspot_properties

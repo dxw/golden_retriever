@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift File.join(File.dirname(__FILE__), 'lib')
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), "lib")
 
-require 'rspec/core/rake_task'
-require 'rubocop/rake_task'
-require 'logger'
-require 'golden_retriever'
-
-RuboCop::RakeTask.new
+require "rspec/core/rake_task"
+require "standard/rake"
+require "logger"
+require "golden_retriever"
 
 RSpec::Core::RakeTask.new(:spec)
 
-task default: %i[rubocop spec]
+task default: %i[standard spec]
 
 namespace :opportunities do
   task :import do
