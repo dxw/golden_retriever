@@ -56,15 +56,13 @@ RSpec.describe GoldenRetriever::ImportRunner do
       let(:notification) { double(:notification, send!: nil) }
 
       before do
-        allow(runner).to receive(:send_error_notification) { notification }
         allow(runner).to receive(:import) do
           raise(ArgumentError)
         end
-        runner.run!
       end
 
-      it "runs the import" do
-        expect(runner).to have_received(:send_error_notification)
+      it "bubbles the error up to the surface" do
+        expect { runner.run! }.to raise_error(ArgumentError)
       end
     end
   end
