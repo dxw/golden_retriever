@@ -1,0 +1,16 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "09:00"
+    timezone: Etc/Greenwich
+  ignore:
+  - dependency-name: standard
+    versions:
+    - 1.0.0
+    - 1.0.1
+  - dependency-name: webmock
+    versions:
+    - 3.12.0
