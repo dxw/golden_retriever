@@ -4,13 +4,5 @@ updates:
   directory: "/"
   schedule:
     interval: daily
-    time: "09:00"
-    timezone: Etc/Greenwich
-  ignore:
-  - dependency-name: standard
-    versions:
-    - 1.0.0
-    - 1.0.1
-  - dependency-name: webmock
-    versions:
-    - 3.12.0
+  open-pull-requests-limit: 10
+  versioning-strategy: increase
